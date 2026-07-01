@@ -1,0 +1,110 @@
+:root {
+  --jr-yellow: #f2b21b;
+  --black: #111111;
+  --white: #ffffff;
+  --soft-bg: #f5f3ee;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--soft-bg);
+  color: var(--black);
+}
+
+.site-header {
+  background: var(--jr-yellow);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.header-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  height: 90px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 44px;
+}
+
+.logo img {
+  display: block;
+  width: 230px;
+  max-width: 42vw;
+}
+
+.main-nav {
+  margin-left: auto;
+  display: flex;
+  gap: 34px;
+}
+
+.main-nav a {
+  color: var(--black);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.header-actions {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.phone-button {
+  background: var(--black);
+  color: var(--white);
+  padding: 11px 18px;
+  border-radius: 14px;
+  text-decoration: none;
+  font-weight: 800;
+  line-height: 1.25;
+  display: flex;
+  flex-direction: column;
+  white-space: nowrap;
+}
+
+.book-button {
+  background: var(--white);
+  color: var(--black);
+  padding: 16px 22px;
+  border-radius: 14px;
+  text-decoration: none;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.test-section {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 80px 24px;
+}
+
+.test-section h1 {
+  font-size: 52px;
+  margin-bottom: 16px;
+}
+
+.test-section p {
+  font-size: 20px;
+  max-width: 620px;
+}
+
+@media (max-width: 900px) {
+  .main-nav {
+    display: none;
+  }
+
+  .header-inner {
+    gap: 20px;
+  }
+
+  .phone-button {
+    display: none;
+  }
+}
