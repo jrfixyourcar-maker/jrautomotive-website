@@ -121,6 +121,23 @@ svg { display: block; fill: none; stroke: currentColor; stroke-width: 1.8; strok
 .header-book { padding: 0 24px; background: #fff; box-shadow: 0 7px 18px rgba(130, 95, 0, .13); }
 .menu-toggle { display: none; }
 
+.site-notice {
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 7px 20px;
+  background: #0a0c0d;
+  color: var(--yellow);
+  border-bottom: 1px solid rgba(255, 212, 0, .55);
+  font-size: 13px;
+  letter-spacing: 1.8px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.site-notice span { width: 32px; height: 2px; background: var(--pink); }
+
 .hero {
   min-height: 505px;
   position: relative;
