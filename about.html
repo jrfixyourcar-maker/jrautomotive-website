@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Learn about J.R Automotive, a friendly local workshop in Napier." />
-  <title>About | J.R Automotive</title>
+  <meta name="description" content="Meet Jase and learn how J.R Automotive keeps vehicle repairs simple, honest and easy to understand." />
+  <title>Meet Jase | J.R Automotive</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -58,22 +58,47 @@
     <span></span>
   </aside>
   <main class="subpage">
-    <section class="page-hero page-width">
-      <p class="eyebrow"><span></span> About</p>
-      <h1>A local workshop that keeps things straightforward.</h1>
-      <p>J.R Automotive is focused on honest advice, quality workmanship and helping people feel less stressed about looking after their vehicles.</p>
+    <section class="page-hero page-width" id="meet-jase">
+      <p class="eyebrow"><span></span> Meet Jase</p>
+      <h1>A simple handshake with the people behind J.R Automotive.</h1>
+      <p>J.R Automotive is owned and run by Jason and Amanda Errington, local Napier business owners who believe getting your vehicle repaired should be simple, honest, and easy to understand.</p>
     </section>
 
-    <section class="page-section page-width">
-      <div class="page-grid two-column">
-        <article class="page-card"><h2>Meet Jase</h2><p>Jase is a hands-on workshop owner who cares about doing the job properly, explaining things clearly and treating people with respect.</p></article>
-        <article class="page-card"><h2>The J.R difference</h2><p>We listen first, explain the likely next step, communicate clearly, and do not repair things just for the sake of it.</p></article>
-        <article class="page-card"><h2>Local and independent</h2><p>Proudly Napier owned and operated, serving local drivers across Hawke's Bay.</p></article>
-        <article class="page-card"><h2>Quality focused</h2><p>We are not trying to be the cheapest. We focus on good work, good parts and standing by what we do.</p></article>
-      </div>
+    <section class="page-section page-width meet-page">
+      <article class="page-card meet-intro">
+        <h2>Meet Jase</h2>
+        <p>When you contact J.R Automotive, you are not dealing with a call centre or being passed from person to person. You are speaking with someone who understands the job, listens to what is going on, and helps point you in the right direction.</p>
+        <p>The aim is simple: explain things clearly, do quality work, and stand by what we do.</p>
+        <p>J.R Automotive is not trying to be the cheapest workshop in town. The focus is on doing the job properly, using good parts, giving honest advice, and helping customers make informed decisions about their vehicles.</p>
+        <p>Whether your car is due for a service, has failed a WOF, has a warning light on, or just does not feel right, Jason, Amanda, and the team are here to make the process easier.</p>
+        <p><strong>Automotive repairs made easy.</strong></p>
+      </article>
+
+      <section class="page-card">
+        <h2>What you can expect</h2>
+        <ul class="expect-list">
+          <li>Straightforward advice</li>
+          <li>Clear explanations</li>
+          <li>Quality workmanship</li>
+          <li>Good parts</li>
+          <li>Honest communication</li>
+          <li>A practical approach to repairs and maintenance</li>
+          <li>Someone who stands by the work</li>
+        </ul>
+      </section>
+
+      <section class="page-card">
+        <h2>How we work</h2>
+        <p>Tell us what is happening with your vehicle, and we will help guide the next step. Sometimes that means booking it in for a service or inspection. Sometimes it means starting with a diagnostic check. Either way, we will explain things in plain language so you understand what is going on.</p>
+      </section>
+
+      <aside class="advice-cta meet-cta">
+        <h2>Need help with your vehicle?</h2>
+        <p>Contact J.R Automotive and we will point you in the right direction.</p>
+        <a class="button button-yellow" href="contact.html">Contact J.R Automotive</a>
+      </aside>
     </section>
   </main>
-
   <footer><div class="page-width"><span>© <span id="year"></span> J.R Automotive, Napier</span><a href="#top">Back to top ↑</a></div></footer>
 
   <script>
@@ -88,5 +113,6 @@
       toggle.setAttribute('aria-expanded', 'false');
     }));
     document.getElementById('year').textContent = new Date().getFullYear();
-  </script></body>
+  </script>
+</body>
 </html>
