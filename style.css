@@ -520,3 +520,12 @@ footer a { text-decoration: none; }
   display: block;
   border: 0;
 }
+
+.contact-logo {
+  width: 210px;
+  max-width: 100%;
+  height: auto;
+  margin: 0 0 14px;
+  border-radius: 4px;
+  mix-blend-mode: screen;
+}
