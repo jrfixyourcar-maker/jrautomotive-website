@@ -721,34 +721,53 @@ footer a { text-decoration: none; }
   flex-direction: column;
   justify-content: center;
   padding: 28px;
-  background: var(--yellow);
-  color: #101010;
+  background:
+    radial-gradient(circle at top right, rgba(255, 255, 255, .42), transparent 34%),
+    var(--yellow);
+  color: #ffffff;
   box-shadow: var(--shadow);
+}
+
+.meet-highlight span,
+.meet-highlight strong,
+.meet-highlight p {
+  position: relative;
+  z-index: 1;
 }
 
 .meet-highlight span {
   width: fit-content;
   margin-bottom: 18px;
-  padding: 5px 9px;
+  padding: 6px 10px;
   border-radius: 999px;
-  background: #101010;
+  background: rgba(10, 10, 10, .9);
   color: var(--yellow);
   font-size: 12px;
   font-weight: 900;
+  letter-spacing: .06em;
   text-transform: uppercase;
 }
 
 .meet-highlight strong {
   display: block;
-  font-size: clamp(30px, 3vw, 46px);
-  line-height: .98;
-  text-transform: uppercase;
+  padding: 20px;
+  border-radius: 14px;
+  background: linear-gradient(145deg, #191c1e, #080b0d);
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(28px, 2.6vw, 40px);
+  font-weight: 900;
+  letter-spacing: -.03em;
+  line-height: 1.02;
+  text-transform: none;
 }
 
 .meet-highlight p {
   margin: 16px 0 0;
-  color: #191919;
-  font-weight: 700;
+  color: #101010;
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.35;
 }
 
 .expect-list {
