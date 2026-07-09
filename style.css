@@ -538,7 +538,30 @@ footer a { text-decoration: none; }
 /* Advice Centre FAQ structure */
 .advice-faq {
   display: grid;
-  gap: 12px;
+  gap: 18px;
+}
+
+.grouped-faq {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+}
+
+.faq-group {
+  display: grid;
+  gap: 10px;
+  padding: 16px;
+  border: 1px solid rgba(255, 212, 0, .25);
+  border-radius: 10px;
+  background: rgba(8, 11, 13, .34);
+  box-shadow: var(--shadow);
+}
+
+.faq-group-title {
+  margin: 0 0 4px;
+  color: var(--yellow);
+  font-size: clamp(20px, 2vw, 30px);
+  line-height: 1;
+  text-transform: uppercase;
 }
 
 .faq-item {
@@ -552,8 +575,8 @@ footer a { text-decoration: none; }
 .faq-question {
   width: 100%;
   display: grid;
-  grid-template-columns: minmax(120px, 180px) 1fr;
-  gap: 18px;
+  grid-template-columns: 1fr;
+  gap: 10px;
   align-items: center;
   padding: 18px 20px;
   border: 0;
@@ -629,8 +652,7 @@ footer a { text-decoration: none; }
 }
 
 @media (max-width: 700px) {
-  .faq-question {
+  .grouped-faq {
     grid-template-columns: 1fr;
-    gap: 10px;
   }
 }
