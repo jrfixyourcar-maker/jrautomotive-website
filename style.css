@@ -529,3 +529,8 @@ footer a { text-decoration: none; }
   border-radius: 4px;
   mix-blend-mode: screen;
 }
+
+.contact-email {
+  width: fit-content;
+  margin-top: 16px;
+}
