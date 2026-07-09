@@ -73,14 +73,15 @@ svg { display: block; fill: none; stroke: currentColor; stroke-width: 1.8; strok
   flex: 1;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   gap: 26px;
 }
 .main-nav {
+  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(15px, 1.3vw, 27px);
+  gap: clamp(26px, 3vw, 56px);
   white-space: nowrap;
 }
 .main-nav a {
