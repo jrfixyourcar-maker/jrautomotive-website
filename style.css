@@ -497,3 +497,26 @@ footer a { text-decoration: none; }
     flex-direction: column;
   }
 }
+
+.map-link {
+  color: var(--yellow);
+  font-size: 13px;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.map-card {
+  margin-top: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 212, 0, .35);
+  border-radius: 8px;
+  background: #111416;
+  box-shadow: var(--shadow);
+}
+
+.map-card iframe {
+  width: 100%;
+  min-height: 390px;
+  display: block;
+  border: 0;
+}
