@@ -128,7 +128,7 @@ svg { display: block; fill: none; stroke: currentColor; stroke-width: 1.8; strok
   display: flex;
   align-items: center;
   isolation: isolate;
-  background-image: url("images/hero-workshop-clean.png");
+  background-image: url("images/hero-workshop-clean-optimized.jpg");
   background-size: cover;
   background-position: center;
   border-bottom: 1px solid var(--yellow);
@@ -829,10 +829,10 @@ footer a { text-decoration: none; }
   mask-image: linear-gradient(to bottom, #000 0%, #000 72%, transparent 100%);
 }
 
-.services-page { --page-background: url("images/bg-services-engine-brakes.png"); }
-.advice-page { --page-background: url("images/bg-advice-diagnostics.png"); }
-.about-page { --page-background: url("images/bg-about-tools.png"); }
-.contact-page { --page-background: url("images/bg-contact-counter.png"); }
+.services-page { --page-background: url("images/bg-services-engine-brakes-optimized.jpg"); }
+.advice-page { --page-background: url("images/bg-advice-diagnostics-optimized.jpg"); }
+.about-page { --page-background: url("images/bg-about-tools-optimized.jpg"); }
+.contact-page { --page-background: url("images/bg-contact-counter-optimized.jpg"); }
 
 .services-page::before {
   height: 100%;
