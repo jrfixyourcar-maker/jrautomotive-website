@@ -604,7 +604,7 @@ footer a { text-decoration: none; }
   margin-top: 16px;
 }
 
-.answer-block h2 {
+.answer-block h3 {
   margin: 0 0 5px;
   color: var(--yellow);
   font-size: 14px;
