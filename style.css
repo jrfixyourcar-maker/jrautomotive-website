@@ -1,5 +1,5 @@
 :root {
-  --yellow: #ffd400;
+  --yellow: #f3c300;
   --yellow-deep: #f2b900;
   --pink: #ff2d8b;
   --black: #080b0d;
@@ -123,12 +123,12 @@ svg { display: block; fill: none; stroke: currentColor; stroke-width: 1.8; strok
 .menu-toggle { display: none; }
 
 .hero {
-  min-height: 505px;
+  min-height: clamp(560px, 65vh, 720px);
   position: relative;
   display: flex;
   align-items: center;
   isolation: isolate;
-  background-image: linear-gradient(90deg, rgba(2, 6, 8, .24), transparent 54%), url("images/hero-workshop.png");
+  background-image: url("images/hero-workshop-clean.png");
   background-size: cover;
   background-position: center;
   border-bottom: 1px solid var(--yellow);
@@ -138,9 +138,10 @@ svg { display: block; fill: none; stroke: currentColor; stroke-width: 1.8; strok
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(90deg, rgba(2, 5, 7, .15), transparent 55%, rgba(0, 0, 0, .03));
+  background: linear-gradient(90deg, rgba(5, 7, 8, .08) 0%, rgba(5, 7, 8, .18) 43%, rgba(5, 7, 8, .88) 100%);
 }
-.hero-content { padding: 56px 16px; }
+.hero-content { display: flex; justify-content: flex-end; padding: 72px 16px; }
+.hero-copy-block { width: min(590px, 48%); }
 .eyebrow {
   display: flex;
   align-items: center;
@@ -156,14 +157,14 @@ svg { display: block; fill: none; stroke: currentColor; stroke-width: 1.8; strok
   max-width: 600px;
   margin: 0;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  font-size: clamp(52px, 4.3vw, 76px);
+  font-size: clamp(52px, 5vw, 82px);
   font-weight: 800;
   line-height: 1.02;
   letter-spacing: -.6px;
   text-wrap: balance;
   text-shadow: 0 3px 18px rgba(0, 0, 0, .34);
 }
-.hero-copy { margin: 18px 0 26px; font-size: clamp(17px, 1.4vw, 22px); line-height: 1.35; }
+.hero-copy { max-width: 570px; margin: 20px 0 30px; color: #f1f1f1; font-size: clamp(17px, 1.3vw, 21px); line-height: 1.55; }
 .hero-actions { display: flex; gap: 22px; flex-wrap: wrap; }
 .button {
   min-height: 50px;
@@ -347,6 +348,7 @@ footer a { text-decoration: none; }
   .hero { min-height: 600px; align-items: flex-end; background-position: 67% center; }
   .hero::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(0deg, rgba(2,5,6,.97) 4%, rgba(2,5,6,.73) 47%, rgba(2,5,6,.1) 80%); }
   .hero-content { padding: 50px 0; }
+  .hero-copy-block { width: min(100%, 620px); }
   .hero h1 { font-size: clamp(43px, 9vw, 66px); }
   .trust-grid { grid-template-columns: repeat(2, 1fr); gap: 20px 0; }
   .trust-item:nth-child(2) { border-right: 0; }
