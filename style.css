@@ -805,3 +805,72 @@ footer a { text-decoration: none; }
     grid-template-columns: 1fr;
   }
 }
+
+/* Subpage workshop photography */
+.subpage {
+  position: relative;
+  isolation: isolate;
+}
+
+.subpage::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: -1;
+  height: clamp(340px, 42vw, 520px);
+  background-image:
+    linear-gradient(90deg, rgba(13, 16, 18, .9) 0%, rgba(13, 16, 18, .64) 52%, rgba(13, 16, 18, .3) 100%),
+    linear-gradient(0deg, #35393b 0%, transparent 48%),
+    var(--page-background);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 72%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 72%, transparent 100%);
+}
+
+.services-page { --page-background: url("images/bg-services-engine-brakes.png"); }
+.advice-page { --page-background: url("images/bg-advice-diagnostics.png"); }
+.about-page { --page-background: url("images/bg-about-tools.png"); }
+.contact-page { --page-background: url("images/bg-contact-counter.png"); }
+
+.services-page::before {
+  height: 100%;
+  background-image:
+    linear-gradient(90deg, rgba(13, 16, 18, .9), rgba(13, 16, 18, .68)),
+    linear-gradient(0deg, rgba(35, 39, 41, .9), rgba(13, 16, 18, .18) 65%),
+    var(--page-background);
+  background-position: center top;
+  background-size: cover;
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+
+.subpage .page-hero {
+  min-height: 330px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-shadow: 0 3px 20px rgba(0, 0, 0, .62);
+}
+
+.about-page .about-hero-card {
+  background: linear-gradient(145deg, rgba(35, 40, 42, .9), rgba(12, 15, 16, .82) 72%);
+  backdrop-filter: blur(2px);
+}
+
+@media (max-width: 700px) {
+  .subpage::before {
+    height: 500px;
+    background-position: 62% center;
+  }
+
+  .services-page::before {
+    height: 100%;
+    background-position: 68% top;
+  }
+
+  .subpage .page-hero {
+    min-height: 300px;
+  }
+}
