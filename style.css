@@ -471,6 +471,39 @@ footer a { text-decoration: none; }
   gap: 24px;
 }
 
+.workshop-hours {
+  margin: 22px 0;
+}
+
+.contact-page-card .workshop-hours h2 {
+  margin-bottom: 8px;
+  color: var(--yellow);
+  font-size: 16px;
+}
+
+.workshop-hours dl {
+  width: min(100%, 410px);
+  margin: 0;
+}
+
+.workshop-hours dl > div {
+  display: grid;
+  grid-template-columns: minmax(125px, 1fr) minmax(150px, auto);
+  gap: 20px;
+  padding: 7px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, .14);
+}
+
+.workshop-hours dt {
+  font-weight: 800;
+}
+
+.workshop-hours dd {
+  margin: 0;
+  color: #eeeeee;
+  text-align: right;
+}
+
 @media (max-width: 900px) {
   .page-grid,
   .page-grid.two-column {
@@ -872,5 +905,16 @@ footer a { text-decoration: none; }
 
   .subpage .page-hero {
     min-height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .workshop-hours dl > div {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+
+  .workshop-hours dd {
+    text-align: left;
   }
 }
