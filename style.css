@@ -589,6 +589,55 @@ footer a { text-decoration: none; }
   width: fit-content;
 }
 
+/* Contact message form */
+.message-section {
+  display: grid;
+  grid-template-columns: minmax(260px, .7fr) minmax(0, 1.3fr);
+  gap: clamp(28px, 5vw, 70px);
+  margin: 28px 0;
+  padding: clamp(26px, 4vw, 48px);
+  border-top: 4px solid var(--yellow);
+  border-radius: 8px;
+  background: linear-gradient(145deg, #282b2c, #151819);
+  box-shadow: var(--shadow);
+}
+.message-intro h2 { margin: 0 0 14px; font-size: clamp(34px, 4vw, 54px); line-height: 1; text-transform: uppercase; }
+.message-intro > p:not(.eyebrow, .message-reassurance) { margin: 0; color: #eee; font-size: 17px; }
+.message-reassurance { display: flex; align-items: flex-start; gap: 12px; margin: 24px 0 0; color: #eee; font-size: 13px; }
+.message-reassurance svg { width: 25px; height: 25px; flex: 0 0 auto; color: var(--yellow); }
+.message-form { padding: clamp(22px, 3vw, 32px); border-radius: 8px; background: #fff; color: var(--black); }
+.form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.message-form label { min-width: 0; display: grid; gap: 7px; }
+.message-form label > span { font-size: 13px; font-weight: 900; }
+.message-form label b { color: #9f253d; }
+.message-form label small { color: #666; font-size: 11px; font-weight: 700; }
+.message-form input,
+.message-form select,
+.message-form textarea { width: 100%; min-height: 48px; padding: 11px 12px; border: 1px solid #b8b8b8; border-radius: 5px; background: #fff; color: #111; font: inherit; }
+.message-form textarea { min-height: 130px; resize: vertical; }
+.message-form input:focus,
+.message-form select:focus,
+.message-form textarea:focus { border-color: #8a6d00; outline: 3px solid rgba(243, 195, 0, .25); }
+.form-field-wide { grid-column: 1 / -1; }
+.form-honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+.form-contact-note { margin: 14px 0; color: #555; font-size: 12px; }
+.turnstile-container { min-height: 65px; }
+.form-submit-row { display: flex; align-items: center; gap: 18px; margin-top: 15px; }
+.message-form button { border: 0; cursor: pointer; font: inherit; }
+.message-form button:disabled { cursor: not-allowed; opacity: .58; transform: none; }
+.form-status { margin: 0; color: #555; font-size: 13px; font-weight: 700; }
+.form-status.is-error { color: #9f253d; }
+.form-status.is-success { color: #216b3a; }
+
+@media (max-width: 900px) {
+  .message-section { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .form-grid { grid-template-columns: 1fr; }
+  .form-field-wide { grid-column: auto; }
+  .form-submit-row { align-items: stretch; flex-direction: column; }
+}
 /* Advice Centre FAQ structure */
 .advice-faq {
   display: grid;

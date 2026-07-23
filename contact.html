@@ -66,7 +66,7 @@
     <section class="page-hero page-width">
       <p class="eyebrow"><span></span> Contact</p>
       <h1>Let us get your vehicle sorted.</h1>
-      <p>Call us to book a service, repair or diagnostic check. Phone and mobile are the best contact options for now.</p>
+      <p>Call us or send a message about a service, repair or diagnostic check. We will help you work out the next step.</p>
     </section>
 
     <section class="page-section page-width">
@@ -91,6 +91,43 @@
         </div>
       </div>
 
+      <section class="message-section" id="message" aria-labelledby="message-heading">
+        <div class="message-intro">
+          <p class="eyebrow"><span></span> Get in touch</p>
+          <h2 id="message-heading">Send us a message</h2>
+          <p>Tell us a little about your vehicle and what’s happening. We’ll get back to you as soon as we can to discuss the best way forward.</p>
+          <p class="message-reassurance"><svg aria-hidden="true"><use href="#icon-shield"></use></svg><span>We will only use your details to respond to your enquiry.</span></p>
+        </div>
+
+        <form class="message-form" id="message-form" action="/api/message" method="post">
+          <div class="form-grid">
+            <label><span>Name <b aria-hidden="true">*</b></span><input type="text" name="name" autocomplete="name" maxlength="80" required /></label>
+            <label><span>Phone</span><input type="tel" name="phone" autocomplete="tel" maxlength="30" inputmode="tel" /></label>
+            <label><span>Email</span><input type="email" name="email" autocomplete="email" maxlength="120" /></label>
+            <label><span>Vehicle or registration <small>(optional)</small></span><input type="text" name="vehicle" autocomplete="off" maxlength="100" /></label>
+            <label class="form-field-wide">
+              <span>What can we help with?</span>
+              <select name="enquiry_type">
+                <option value="Service or maintenance">Service or maintenance</option>
+                <option value="Repair">Repair</option>
+                <option value="WOF">WOF</option>
+                <option value="Warning light or diagnostics">Warning light or diagnostics</option>
+                <option value="Auto electrical">Auto electrical</option>
+                <option value="Air conditioning">Air conditioning</option>
+                <option value="Something else">Something else</option>
+              </select>
+            </label>
+            <label class="form-field-wide"><span>Message <b aria-hidden="true">*</b></span><textarea name="message" rows="6" maxlength="2000" required></textarea></label>
+          </div>
+          <label class="form-honeypot" aria-hidden="true"><span>Company</span><input type="text" name="company" tabindex="-1" autocomplete="off" /></label>
+          <p class="form-contact-note">Please include either a phone number or an email address so we can reply.</p>
+          <div class="turnstile-container" id="message-turnstile" aria-label="Spam protection"></div>
+          <div class="form-submit-row">
+            <button class="button button-yellow" id="message-submit" type="submit" disabled>Send message</button>
+            <p class="form-status" id="message-status" role="status" aria-live="polite">Preparing secure messaging…</p>
+          </div>
+        </form>
+      </section>
       <div class="map-card" aria-label="Map showing J.R Automotive workshop location">
         <iframe
           title="Map to J.R Automotive, Unit 4, 10 Thorn Place, Onekawa, Napier"
@@ -115,5 +152,70 @@
       toggle.setAttribute('aria-expanded', 'false');
     }));
     document.getElementById('year').textContent = new Date().getFullYear();
-  </script></body>
+
+    const messageForm = document.getElementById('message-form');
+    const messageSubmit = document.getElementById('message-submit');
+    const messageStatus = document.getElementById('message-status');
+    let turnstileWidgetId;
+    let resolveTurnstile;
+    const turnstileReady = new Promise(resolve => { resolveTurnstile = resolve; });
+    window.onTurnstileLoad = () => resolveTurnstile();
+
+    async function prepareMessageForm() {
+      try {
+        const turnstileTimeout = new Promise((_, reject) => {
+          window.setTimeout(() => reject(new Error('Turnstile did not load')), 10000);
+        });
+        const [response] = await Promise.all([
+          fetch('/api/message'),
+          Promise.race([turnstileReady, turnstileTimeout])
+        ]);
+        const config = await response.json();
+        if (!response.ok || !config.enabled || !config.siteKey) throw new Error('Messaging is not configured');
+        turnstileWidgetId = window.turnstile.render('#message-turnstile', { sitekey: config.siteKey, theme: 'light' });
+        messageSubmit.disabled = false;
+        messageStatus.textContent = '';
+      } catch (error) {
+        messageStatus.textContent = 'Online messaging is being connected. Please phone or email us for now.';
+      }
+    }
+
+    messageForm.addEventListener('submit', async event => {
+      event.preventDefault();
+      messageStatus.className = 'form-status';
+      const formData = new FormData(messageForm);
+      if (!formData.get('phone')?.trim() && !formData.get('email')?.trim()) {
+        messageStatus.textContent = 'Please enter a phone number or email address.';
+        messageStatus.classList.add('is-error');
+        return;
+      }
+      messageSubmit.disabled = true;
+      messageSubmit.textContent = 'Sending…';
+      messageStatus.textContent = 'Sending your message…';
+      let failureMessage = 'Something went wrong. Please phone or email us instead.';
+      try {
+        const response = await fetch(messageForm.action, { method: 'POST', body: formData });
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok || !result.ok) {
+          failureMessage = result.message || failureMessage;
+          throw new Error('Message could not be sent');
+        }
+        messageForm.reset();
+        if (window.turnstile && turnstileWidgetId !== undefined) window.turnstile.reset(turnstileWidgetId);
+        messageStatus.textContent = 'Thanks—your message has been sent. We will get back to you during workshop hours.';
+        messageStatus.classList.add('is-success');
+      } catch (error) {
+        messageStatus.textContent = failureMessage;
+        messageStatus.classList.add('is-error');
+        if (window.turnstile && turnstileWidgetId !== undefined) window.turnstile.reset(turnstileWidgetId);
+      } finally {
+        messageSubmit.disabled = false;
+        messageSubmit.textContent = 'Send message';
+      }
+    });
+
+    prepareMessageForm();
+  </script>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onTurnstileLoad&amp;render=explicit" async defer></script>
+</body>
 </html>
