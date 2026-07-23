@@ -43,28 +43,19 @@ svg { display: block; fill: none; stroke: currentColor; stroke-width: 1.8; strok
 }
 
 .brand {
-  width: 235px;
-  min-width: 235px;
-  padding: 8px 24px 7px;
+  width: 270px;
+  min-width: 270px;
+  padding: 8px 24px;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  border-radius: 0 0 12px 0;
-  background: #ffd600;
+  background: transparent;
 }
 .brand img {
-  width: 185px;
+  width: 225px;
   height: auto;
   object-fit: contain;
-}
-.brand span {
-  margin-top: -4px;
-  font-size: 8px;
-  font-weight: 800;
-  letter-spacing: 4px;
-  text-transform: uppercase;
 }
 
 .header-main {
@@ -282,8 +273,8 @@ footer a { text-decoration: none; }
 
 @media (max-width: 1480px) {
   .site-header { gap: 18px; }
-  .brand { width: 205px; min-width: 205px; padding-inline: 14px; }
-  .brand img { width: 170px; }
+  .brand { width: 235px; min-width: 235px; padding-inline: 14px; }
+  .brand img { width: 205px; }
   .header-main { gap: 18px; }
   .header-actions { gap: 9px; }
   .header-phone, .header-book { padding-inline: 16px; font-size: 13px; }
@@ -292,8 +283,8 @@ footer a { text-decoration: none; }
 @media (max-width: 1180px) {
   :root { --page: min(100% - 36px, 1040px); }
   .site-header { min-height: 82px; padding-right: 18px; }
-  .brand { width: 190px; min-width: 190px; }
-  .brand img { width: 156px; height: 55px; }
+  .brand { width: 210px; min-width: 210px; }
+  .brand img { width: 185px; height: auto; }
   .main-nav a { padding-block: 31px; }
   .main-nav a:nth-child(n+6) { display: none; }
   .main-nav a::after { bottom: 15px; }
@@ -309,9 +300,9 @@ footer a { text-decoration: none; }
 @media (max-width: 900px) {
   :root { --page: min(100% - 30px, 720px); }
   .site-header { min-height: 74px; align-items: center; justify-content: space-between; padding-right: 14px; }
-  .brand { width: 176px; min-width: 176px; height: 74px; }
-  .brand img { width: 145px; height: 50px; }
-  .brand span { font-size: 6px; letter-spacing: 3px; }
+  .brand { width: 195px; min-width: 195px; height: 74px; }
+  .brand img { width: 170px; height: auto; }
+
   .menu-toggle {
     width: 46px;
     height: 44px;
@@ -360,7 +351,8 @@ footer a { text-decoration: none; }
 
 @media (max-width: 620px) {
   :root { --page: calc(100% - 28px); }
-  .brand { width: 160px; min-width: 160px; }
+  .brand { width: 180px; min-width: 180px; }
+  .brand img { width: 158px; }
   .hero { min-height: 570px; background-position: 70% center; }
   .hero-actions { gap: 12px; }
   .button { width: 100%; }
