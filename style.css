@@ -79,7 +79,7 @@ svg { display: block; fill: none; stroke: currentColor; stroke-width: 1.8; strok
   padding: 39px 0 36px;
   color: #090909;
   text-decoration: none;
-  font-size: clamp(11px, .82vw, 14px);
+  font-size: clamp(12.1px, .902vw, 15.4px);
   font-weight: 900;
 }
 .main-nav a::after {
@@ -331,7 +331,7 @@ footer a { text-decoration: none; }
   }
   .menu-open .header-main { display: block; }
   .main-nav { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; white-space: normal; }
-  .main-nav a, .main-nav a:nth-child(n) { display: block; padding: 12px 10px; color: #fff; border-bottom: 1px solid rgba(255,255,255,.1); font-size: 13px; }
+  .main-nav a, .main-nav a:nth-child(n) { display: block; padding: 12px 10px; color: #fff; border-bottom: 1px solid rgba(255,255,255,.1); font-size: 14.3px; }
   .main-nav a::after { display: none; }
   .header-actions { margin-top: 16px; }
   .header-phone, .header-book { flex: 1; }
