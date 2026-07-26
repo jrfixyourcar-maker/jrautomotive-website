@@ -6,18 +6,16 @@ After the Worker deployment, configure these values in the `jrautomotive-pages` 
 
 - `TURNSTILE_SITE_KEY` — variable
 - `TURNSTILE_SECRET_KEY` — encrypted secret
-- `CF_ACCOUNT_ID` — variable
-- `CF_EMAIL_API_TOKEN` — encrypted secret with Email Sending permission
-- `MESSAGE_FROM_EMAIL` — variable using a sender on `jrautomotive.nz`
-- `MESSAGE_TO_EMAIL` — variable containing the verified workshop destination email
+- `MESSAGE_FROM_EMAIL` — configured in `wrangler.jsonc`
+- `MESSAGE_TO_EMAIL` — configured in `wrangler.jsonc`
+- `EMAIL` — restricted email binding configured in `wrangler.jsonc`
 
 Cloudflare setup required:
 
 1. Create a Turnstile widget restricted to `jrautomotive.nz`.
 2. Enable Email Routing and verify the destination workshop email.
-3. Onboard `jrautomotive.nz` under Cloudflare Email Service.
-4. Create an API token with Email Sending permission.
-5. Add the variables and encrypted secrets above to the Worker.
-6. Redeploy the Worker after adding the configuration.
+3. Add the restricted `send_email` binding for the verified workshop destination.
+4. Add the Turnstile variable and encrypted secret to the Worker.
+5. Redeploy the Worker after adding the configuration.
 
-Do not put API tokens or Turnstile secret keys in HTML, JavaScript, Git, `.env`, or `.dev.vars` files that will be committed.
+Do not put Turnstile secret keys in HTML, JavaScript, Git, `.env`, or `.dev.vars` files that will be committed.

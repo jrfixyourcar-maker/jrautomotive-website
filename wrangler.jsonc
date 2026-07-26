@@ -4,6 +4,16 @@
   "main": "./src/worker.js",
   "compatibility_date": "2026-07-26",
   "compatibility_flags": ["nodejs_compat"],
+  "vars": {
+    "MESSAGE_FROM_EMAIL": "website@jrautomotive.nz",
+    "MESSAGE_TO_EMAIL": "J.Rfixyourcar@gmail.com"
+  },
+  "send_email": [
+    {
+      "name": "EMAIL",
+      "destination_address": "J.Rfixyourcar@gmail.com"
+    }
+  ],
   "assets": {
     "directory": ".",
     "binding": "ASSETS",

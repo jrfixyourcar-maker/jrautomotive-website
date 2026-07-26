@@ -34,8 +34,7 @@ export async function onRequestGet({ env }) {
     enabled: Boolean(
       env.TURNSTILE_SITE_KEY &&
       env.TURNSTILE_SECRET_KEY &&
-      env.CF_ACCOUNT_ID &&
-      env.CF_EMAIL_API_TOKEN &&
+      env.EMAIL &&
       env.MESSAGE_FROM_EMAIL &&
       env.MESSAGE_TO_EMAIL
     ),
@@ -46,8 +45,7 @@ export async function onRequestGet({ env }) {
 export async function onRequestPost({ request, env }) {
   const requiredConfiguration = [
     'TURNSTILE_SECRET_KEY',
-    'CF_ACCOUNT_ID',
-    'CF_EMAIL_API_TOKEN',
+    'EMAIL',
     'MESSAGE_FROM_EMAIL',
     'MESSAGE_TO_EMAIL'
   ];
@@ -120,29 +118,17 @@ export async function onRequestPost({ request, env }) {
   ].join('\n');
 
   const emailPayload = {
-    from: { address: env.MESSAGE_FROM_EMAIL, name: 'J.R Automotive website' },
+    from: { email: env.MESSAGE_FROM_EMAIL, name: 'J.R Automotive website' },
     to: env.MESSAGE_TO_EMAIL,
     subject: `Website enquiry: ${enquiryType}`,
     text
   };
-  if (email) emailPayload.reply_to = { address: email, name };
+  if (email) emailPayload.replyTo = { email, name };
 
   try {
-    const response = await fetch(
-      `https://api.cloudflare.com/client/v4/accounts/${encodeURIComponent(env.CF_ACCOUNT_ID)}/email/sending/send`,
-      {
-        method: 'POST',
-        headers: { Authorization: `Bearer ${env.CF_EMAIL_API_TOKEN}`, 'Content-Type': 'application/json' },
-        body: JSON.stringify(emailPayload)
-      }
-    );
-    const result = await response.json();
-    if (!response.ok || !result.success) {
-      console.error('Cloudflare Email Service rejected a message', result.errors || response.status);
-      return json({ ok: false, message: 'Your message could not be sent. Please phone or email us instead.' }, 502);
-    }
+    await env.EMAIL.send(emailPayload);
   } catch (error) {
-    console.error('Email request failed', error);
+    console.error('Cloudflare Email Service rejected a message', error);
     return json({ ok: false, message: 'Your message could not be sent. Please phone or email us instead.' }, 502);
   }
 
