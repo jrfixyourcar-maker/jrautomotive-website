@@ -1,3 +1,5 @@
+import { EmailMessage } from 'cloudflare:email';
+
 const JSON_HEADERS = {
   'Content-Type': 'application/json; charset=utf-8',
   'Cache-Control': 'no-store'
@@ -120,16 +122,26 @@ export async function onRequestPost({ request, env }) {
     message
   ].join('\n');
 
-  const emailPayload = {
-    from: { email: env.MESSAGE_FROM_EMAIL, name: 'J.R Automotive website' },
-    to: env.MESSAGE_TO_EMAIL,
-    subject: `Website enquiry: ${enquiryType}`,
-    text
-  };
-  if (email) emailPayload.replyTo = { email, name };
+  const headers = [
+    `From: J.R Automotive website <${env.MESSAGE_FROM_EMAIL}>`,
+    `To: ${env.MESSAGE_TO_EMAIL}`,
+    `Subject: Website enquiry: ${enquiryType}`,
+    `Date: ${new Date().toUTCString()}`,
+    `Message-ID: <${crypto.randomUUID()}@jrautomotive.nz>`,
+    'MIME-Version: 1.0',
+    'Content-Type: text/plain; charset=UTF-8',
+    'Content-Transfer-Encoding: 8bit'
+  ];
+  if (email) headers.push(`Reply-To: ${email}`);
+
+  const emailMessage = new EmailMessage(
+    env.MESSAGE_FROM_EMAIL,
+    env.MESSAGE_TO_EMAIL,
+    `${headers.join('\r\n')}\r\n\r\n${text}`
+  );
 
   try {
-    await env.EMAIL.send(emailPayload);
+    await env.EMAIL.send(emailMessage);
   } catch (error) {
     console.error('Cloudflare Email Service rejected a message', error);
     return json({ ok: false, message: 'Your message could not be sent. Please phone or email us instead.' }, 502);
