@@ -4,7 +4,9 @@
   "main": "./src/worker.js",
   "compatibility_date": "2026-07-26",
   "compatibility_flags": ["nodejs_compat"],
+  "keep_vars": true,
   "vars": {
+    "TURNSTILE_SITE_KEY": "0x4AAAAAAD772OaNDaSQ4dmS",
     "MESSAGE_FROM_EMAIL": "website@jrautomotive.nz",
     "MESSAGE_TO_EMAIL": "J.Rfixyourcar@gmail.com"
   },
