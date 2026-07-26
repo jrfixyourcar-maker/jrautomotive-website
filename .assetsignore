@@ -1,0 +1,14 @@
+.git*
+.assetsignore
+.tools
+.vs
+.agents
+functions
+src
+node_modules
+AGENTS.md
+CODEX_START_PROMPT.txt
+MESSAGE_SETUP.md
+README.md
+*.backup.*
+wrangler.jsonc

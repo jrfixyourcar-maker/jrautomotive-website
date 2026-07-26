@@ -1,8 +1,8 @@
 # Website message form setup
 
-The Contact page posts enquiries to the Cloudflare Pages Function at `/api/message`.
+The Contact page posts enquiries to the Cloudflare Worker at `/api/message`.
 
-Before deployment, configure these values in the `jrautomotive-pages` project under **Settings → Variables and Secrets**:
+After the Worker deployment, configure these values in the `jrautomotive-pages` project under **Settings → Variables and Secrets**:
 
 - `TURNSTILE_SITE_KEY` — variable
 - `TURNSTILE_SECRET_KEY` — encrypted secret
@@ -17,7 +17,7 @@ Cloudflare setup required:
 2. Enable Email Routing and verify the destination workshop email.
 3. Onboard `jrautomotive.nz` under Cloudflare Email Service.
 4. Create an API token with Email Sending permission.
-5. Add the variables and encrypted secrets above to preview and production as required.
-6. Redeploy the Pages project after adding the configuration.
+5. Add the variables and encrypted secrets above to the Worker.
+6. Redeploy the Worker after adding the configuration.
 
 Do not put API tokens or Turnstile secret keys in HTML, JavaScript, Git, `.env`, or `.dev.vars` files that will be committed.
