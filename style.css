@@ -109,7 +109,7 @@ svg { display: block; fill: none; stroke: currentColor; stroke-width: 1.8; strok
 .header-phone:hover, .header-book:hover, .button:hover { transform: translateY(-2px); }
 .header-phone { gap: 10px; padding: 0 20px; background: #080a0b; color: #fff; }
 .header-phone svg { width: 18px; height: 18px; }
-.header-book { padding: 0 24px; background: #fff; box-shadow: 0 7px 18px rgba(130, 95, 0, .13); }
+.header-book { padding: 0 24px; background: #fff; color: #080a0b; box-shadow: 0 7px 18px rgba(130, 95, 0, .13); }
 .menu-toggle { display: none; }
 
 .hero {
