@@ -8,12 +8,12 @@
   "vars": {
     "TURNSTILE_SITE_KEY": "0x4AAAAAAD772OaNDaSQ4dmS",
     "MESSAGE_FROM_EMAIL": "website@jrautomotive.nz",
-    "MESSAGE_TO_EMAIL": "J.Rfixyourcar@gmail.com"
+    "MESSAGE_TO_EMAIL": "j.rfixyourcar@gmail.com"
   },
   "send_email": [
     {
       "name": "EMAIL",
-      "destination_address": "J.Rfixyourcar@gmail.com"
+      "destination_address": "j.rfixyourcar@gmail.com"
     }
   ],
   "observability": {
