@@ -143,7 +143,12 @@ export async function onRequestPost({ request, env }) {
   try {
     await env.EMAIL.send(emailMessage);
   } catch (error) {
-    console.error('Cloudflare Email Service rejected a message', error);
+    console.error('Cloudflare Email Service rejected a message', JSON.stringify({
+      name: String(error?.name || ''),
+      code: String(error?.code || ''),
+      message: String(error?.message || ''),
+      cause: String(error?.cause || '')
+    }));
     return json({ ok: false, message: 'Your message could not be sent. Please phone or email us instead.' }, 502);
   }
 
