@@ -30,15 +30,18 @@ function isEmail(value) {
 }
 
 export async function onRequestGet({ env }) {
+  const configuration = {
+    turnstileSiteKey: Boolean(env.TURNSTILE_SITE_KEY),
+    turnstileSecret: Boolean(env.TURNSTILE_SECRET_KEY),
+    emailBinding: Boolean(env.EMAIL),
+    fromEmail: Boolean(env.MESSAGE_FROM_EMAIL),
+    toEmail: Boolean(env.MESSAGE_TO_EMAIL)
+  };
+
   return json({
-    enabled: Boolean(
-      env.TURNSTILE_SITE_KEY &&
-      env.TURNSTILE_SECRET_KEY &&
-      env.EMAIL &&
-      env.MESSAGE_FROM_EMAIL &&
-      env.MESSAGE_TO_EMAIL
-    ),
-    siteKey: env.TURNSTILE_SITE_KEY || ''
+    enabled: Object.values(configuration).every(Boolean),
+    siteKey: env.TURNSTILE_SITE_KEY || '',
+    configuration
   });
 }
 
