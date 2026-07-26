@@ -3,3 +3,8 @@
 images/jr-logo.tif.png
 .dev.vars*
 .env*
+
+# wrangler files
+.wrangler
+!.dev.vars.example
+!.env.example
