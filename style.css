@@ -255,6 +255,21 @@ svg { display: block; fill: none; stroke: currentColor; stroke-width: 1.8; strok
 .why-grid h3 { display: inline-block; margin: 0 0 4px; padding-bottom: 2px; border-bottom: 2px solid var(--pink); font-size: 15px; }
 .why-grid p { margin: 0; color: #f0f0f0; font-size: 13px; }
 
+.customer-reviews { padding: 54px 0 60px; background: #f5f2e9; color: var(--black); }
+.reviews-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 36px; margin-bottom: 26px; }
+.reviews-heading .eyebrow { margin: 0 0 8px; color: #555b5d; }
+.reviews-heading h2 { margin: 0 0 8px; font-size: clamp(30px, 3vw, 44px); line-height: 1.05; }
+.reviews-heading > div > p:last-child { margin: 0; color: #555b5d; }
+.reviews-link { flex: 0 0 auto; padding-bottom: 4px; border-bottom: 2px solid var(--yellow-deep); color: #242829; font-size: 14px; font-weight: 900; text-decoration: none; }
+.reviews-link:hover { border-color: var(--pink); }
+.reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.review-card { min-width: 0; margin: 0; padding: 25px; border: 1px solid #ded9cd; border-radius: 12px; background: #fff; box-shadow: 0 10px 26px rgba(8, 11, 13, .08); }
+.review-stars { margin-bottom: 15px; color: #d6a800; font-size: 18px; letter-spacing: 3px; }
+.review-card blockquote { margin: 0 0 22px; color: #262a2b; font-size: 18px; font-weight: 700; line-height: 1.45; }
+.review-card figcaption { display: flex; flex-direction: column; gap: 2px; }
+.review-card figcaption strong { font-size: 14px; }
+.review-card figcaption span { color: #656a6c; font-size: 12px; }
+
 .contact-cta { padding: 58px 0; background: #080b0c; border-top: 1px solid rgba(255,212,0,.35); }
 .contact-inner { display: flex; align-items: center; justify-content: space-between; gap: 40px; }
 .contact-inner h2 { margin: 0 0 8px; font-size: clamp(32px, 4vw, 54px); line-height: 1; }
@@ -346,6 +361,8 @@ footer a { text-decoration: none; }
   .advice-panel { margin-bottom: 12px; }
   .why-grid { grid-template-columns: repeat(2, 1fr); gap: 24px 0; }
   .why-grid article:nth-child(2) { border-right: 0; }
+  .reviews-heading { align-items: flex-start; flex-direction: column; gap: 16px; }
+  .reviews-grid { grid-template-columns: 1fr; }
   .contact-inner { align-items: flex-start; flex-direction: column; }
 }
 
