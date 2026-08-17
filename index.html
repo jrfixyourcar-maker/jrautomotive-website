@@ -46,18 +46,26 @@
     "email": "J.Rfixyourcar@gmail.com",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Unit 4, 10 Thorn Place, Onekawa",
+      "streetAddress": "4/10 Thorn Place, Onekawa",
       "addressLocality": "Napier",
       "addressRegion": "Hawke's Bay",
       "addressCountry": "NZ"
     },
     "areaServed": "Hawke's Bay",
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      "opens": "08:30",
-      "closes": "17:30"
-    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "08:30",
+        "closes": "17:30"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
     "knowsAbout": [
       "Vehicle servicing and maintenance",
       "Automotive repairs",
@@ -68,7 +76,7 @@
       "Hybrid and electric vehicle servicing",
       "Older vehicle servicing"
     ],
-    "hasMap": "https://www.google.com/maps/search/?api=1&query=Unit%204%2C%2010%20Thorn%20Place%2C%20Onekawa%2C%20Napier%2C%20New%20Zealand"
+    "hasMap": "https://www.google.com/maps/search/?api=1&query=4%2F10%20Thorn%20Place%2C%20Onekawa%2C%20Napier%2C%20New%20Zealand"
   }
   </script>
   <script type="application/ld+json">
