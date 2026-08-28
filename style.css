@@ -1153,6 +1153,10 @@ footer a { text-decoration: none; }
   border-left: 5px solid var(--yellow);
 }
 
+.meet-intro p {
+  font-size: 1.1rem;
+}
+
 .meet-intro p + p {
   margin-top: 14px;
 }
