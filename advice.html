@@ -27,6 +27,26 @@
   <meta property="og:image:alt" content="A warmly lit automotive workshop" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#f3c300" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://jrautomotive.nz/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Advice Centre",
+        "item": "https://jrautomotive.nz/advice.html"
+      }
+    ]
+  }
+  </script>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -80,7 +100,24 @@
       <p>Answers from your local Napier workshop to common vehicle questions. Find the question that sounds closest to your issue, click it, and read the quick answer first.</p>
     </section>
 
-        <section class="page-section page-width" aria-label="Vehicle advice questions">
+    <nav class="advice-topics page-width" aria-label="Advice Centre topics">
+      <p>Browse by topic</p>
+      <div>
+        <a href="#faq-group-servicing">Servicing</a>
+        <a href="#faq-group-oil-fluids">Oil &amp; fluids</a>
+        <a href="#faq-group-tyres">Tyres</a>
+        <a href="#faq-group-warning-lights">Warning lights</a>
+        <a href="#faq-group-general-repairs">General repairs</a>
+        <a href="#faq-group-brakes">Brakes</a>
+        <a href="#faq-group-wof">WOF</a>
+        <a href="#faq-group-air-conditioning">Air conditioning</a>
+        <a href="#faq-group-batteries-starting">Batteries &amp; starting</a>
+        <a href="#faq-group-hybrid-ev">Hybrid / EV</a>
+        <a href="#faq-group-older-vehicles">Older vehicles</a>
+      </div>
+    </nav>
+
+    <section class="page-section page-width" aria-label="Vehicle advice questions">
       <div class="advice-faq grouped-faq">
         <section class="faq-group" aria-labelledby="faq-group-servicing">
           <h2 class="faq-group-title" id="faq-group-servicing">Servicing</h2>
@@ -412,6 +449,28 @@
         if (answer) answer.hidden = isOpen;
       });
     });
+
+    const faqData = Array.from(document.querySelectorAll('.faq-item')).map(item => {
+      const question = item.querySelector('.faq-title');
+      const answer = item.querySelector('.faq-answer');
+      return {
+        '@type': 'Question',
+        name: question.textContent.trim(),
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: Array.from(answer.querySelectorAll('p')).map(paragraph => paragraph.textContent.trim()).join(' ')
+        }
+      };
+    });
+    const faqSchema = document.createElement('script');
+    faqSchema.type = 'application/ld+json';
+    faqSchema.textContent = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faqData
+    });
+    document.head.appendChild(faqSchema);
+
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
