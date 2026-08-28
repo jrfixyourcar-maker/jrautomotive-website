@@ -971,43 +971,6 @@ footer a { text-decoration: none; }
   gap: 18px;
 }
 
-.advice-topics {
-  padding-top: 8px;
-  padding-bottom: 18px;
-}
-
-.advice-topics p {
-  margin: 0 0 10px;
-  color: var(--yellow);
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.advice-topics div {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.advice-topics a {
-  padding: 8px 12px;
-  border: 1px solid rgba(28, 31, 32, 0.2);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.78);
-  color: var(--charcoal);
-  font-size: 0.86rem;
-  font-weight: 700;
-  text-decoration: none;
-}
-
-.advice-topics a:hover,
-.advice-topics a:focus-visible {
-  border-color: var(--yellow-deep);
-  background: var(--yellow);
-}
-
 .faq-group-title {
   scroll-margin-top: 110px;
 }
