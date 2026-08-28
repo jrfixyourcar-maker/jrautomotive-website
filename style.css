@@ -9,6 +9,7 @@
   --white: #fff;
   --muted: #c8cbcc;
   --line: rgba(255, 255, 255, .18);
+  --heading-font: "Trebuchet MS", Arial, Helvetica, sans-serif;
   --page: min(1390px, calc(100% - 48px));
   --shadow: 0 16px 40px rgba(0, 0, 0, .26);
 }
@@ -19,7 +20,7 @@ body {
   margin: 0;
   color: var(--white);
   background: #25292b;
-  font-family: "Arial Narrow", "Roboto Condensed", Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   line-height: 1.45;
 }
 a { color: inherit; }
@@ -146,11 +147,11 @@ svg { display: block; fill: none; stroke: currentColor; stroke-width: 1.8; strok
 .hero h1 {
   max-width: 600px;
   margin: 0;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  font-size: clamp(52px, 5vw, 82px);
+  font-family: var(--heading-font);
+  font-size: clamp(48px, 4.6vw, 74px);
   font-weight: 800;
-  line-height: 1.02;
-  letter-spacing: -.6px;
+  line-height: 1.08;
+  letter-spacing: 0;
   text-wrap: balance;
   text-shadow: 0 3px 18px rgba(0, 0, 0, .34);
 }
@@ -413,10 +414,11 @@ footer a { text-decoration: none; }
 .page-hero h1 {
   max-width: 780px;
   margin: 0;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  font-size: clamp(42px, 5vw, 72px);
-  line-height: 1.02;
-  letter-spacing: -.5px;
+  font-family: var(--heading-font);
+  font-size: clamp(38px, 4.5vw, 66px);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 
